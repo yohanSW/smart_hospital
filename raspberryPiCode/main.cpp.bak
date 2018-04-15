@@ -5,6 +5,6 @@
 #include "nurse.h"
 
 int main(int argc, char *argv ){
-	cout << "wowong!"<< endl;
+	cout << "wowong!"<< endln;
 	return 0;
 }
