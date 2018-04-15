@@ -1,5 +1,6 @@
 #ifndef SH_PATIENT
 #define SH_PATIENT
+#include "common.h"
 
 using namespace han;
 

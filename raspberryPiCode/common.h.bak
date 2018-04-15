@@ -1,7 +1,0 @@
-#ifndef SH_COMMON
-#define SH_COMMON
-
-#include <iostream>
-
-
-#endif /* SH_COMMON */

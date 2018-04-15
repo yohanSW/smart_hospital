@@ -1,5 +1,6 @@
 #ifndef SH_VEGETATIVE
 #define SH_VEGETATIVE
+#include "common.h"
 #include "patient.h"
 
 using namespace han;

@@ -3,5 +3,6 @@
 
 #include <iostream>
 #include <string>
+#include <pthread>
 
 #endif /* SH_COMMON */

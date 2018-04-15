@@ -1,5 +1,6 @@
 #ifndef SH_FEVER
 #define SH_FEVER
+#include "common.h"
 #include "patient.h"
 
 using namespace han;
