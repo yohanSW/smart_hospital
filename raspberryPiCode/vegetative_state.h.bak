@@ -9,7 +9,7 @@ class Vegetative: public Patient{
 	protected:
 		int heart_rate;
 		double infusion_solution;
-		bool wake_up;
+		
 	public:
 		
 

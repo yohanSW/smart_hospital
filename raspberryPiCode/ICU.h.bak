@@ -7,7 +7,7 @@ using namespace han;
 class ICU{
 	protected:
 		double room_temp;
-		int danger_situation;
+		bool danger;
 		
 	public:
 

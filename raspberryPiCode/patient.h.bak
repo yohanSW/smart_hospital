@@ -7,7 +7,7 @@ using namespace han;
 class Patient{
 	protected:
 		String name;
-		int danger;
+		int danger_situation;
 		
 
 	public:
