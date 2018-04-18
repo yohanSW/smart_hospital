@@ -15,8 +15,8 @@ using namespace han{
 			int get_heart_rate(){return heart_rate;}
 			double get_infusion_solution(){return infusion_solution;}
 			bool get_wake_up(){return wake_up;}
-			void get_sensor();
-			void give_order();
+		
+
 	};
 }
 #endif /* SH_VEGETATIVE */

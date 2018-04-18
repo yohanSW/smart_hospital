@@ -15,8 +15,9 @@ using namespace han
 			Fever();
 			int get_heart_rate(){return heart_rate;}
 			double get_temp(){return temp;}
-			void get_sensor();
-			void give_order();
+
+	
+	
 	};
 
 }
