@@ -3,16 +3,20 @@
 #include "common.h"
 #include "patient.h"
 
-using namespace han;
+using namespace han
+{
 
-class Fever: public Patient{
-	protected:
-		int heart_rate;
-		double temp;
+	class Fever: public Patient{
+		protected:
+			int heart_rate;
+			double temp;
+	
+		public:
+			Fever(void);
+	
+	
+	};
 
-	public:
-
-
-};
+}
 
 #endif /* SH_FEVER */

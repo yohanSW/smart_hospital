@@ -2,17 +2,19 @@
 #define SH_PATIENT
 #include "common.h"
 
-using namespace han;
+using namespace han
+{
 
-class Patient{
-	protected:
-		String name;
-		int danger;
+	class Patient{
+		protected:
+			String name;
+			int danger;
 		
 
-	public:
+		public:
 
 
-};
+	};
+}
 
 #endif /* SH_PATIENT */

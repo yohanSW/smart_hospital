@@ -2,16 +2,18 @@
 #define SH_ICU
 #include "common.h"
 
-using namespace han;
+using namespace han
+{
 
-class ICU{
-	protected:
-		double room_temp;
-		int danger_situation;
+	class ICU{
+		protected:
+			double room_temp;
+			int danger_situation;
 		
-	public:
+		public:
 
 
 };
 
+}
 #endif /* SH_ICU */

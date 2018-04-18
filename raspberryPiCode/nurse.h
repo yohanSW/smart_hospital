@@ -2,15 +2,17 @@
 #define SH_NURSE
 #include "common.h"
 
-using namespace han;
+using namespace han
+{
 
-class Nurse{
-	protected:
+	class Nurse{
+		protected:
 		
 
-	public:
+		public:
 
 
-};
+	};
+}
 
 #endif /* SH_NURSE */
