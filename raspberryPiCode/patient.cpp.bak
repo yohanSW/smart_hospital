@@ -1,8 +1,8 @@
-#include "ICU.h"
+#include "patient.h"
 
 
 using namespace han
 {
-	ICU();
+
 
 }
