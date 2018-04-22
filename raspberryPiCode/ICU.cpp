@@ -4,5 +4,5 @@
 using namespace han
 {
 	ICU();
-
+	void dangerLED();
 }
