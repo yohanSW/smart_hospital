@@ -14,9 +14,10 @@ using namespace han{
 			Vegetative();
 			int get_heart_rate(){return heart_rate;}
 			double get_infusion_solution(){return infusion_solution;}
+			void set_infusion_solution(double num){this.infusion_solution = num;}
 			bool get_wake_up(){return wake_up;}
-		
-
+			void get_sensor();
+			void give_order();
 	};
 }
 #endif /* SH_VEGETATIVE */

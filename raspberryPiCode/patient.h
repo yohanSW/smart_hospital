@@ -14,6 +14,7 @@ using namespace han
 		public:
 			Patient();
 			int get_danger(){return danger;}
+			void set_danger(int num){this.danger = num;}
 			String get_name(){return name;}
 			virtual void get_sensor();
 			virtual void give_order();

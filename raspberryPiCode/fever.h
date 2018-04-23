@@ -14,7 +14,9 @@ using namespace han
 		public:
 			Fever();
 			int get_heart_rate(){return heart_rate;}
+			void set_heart_rate(int num){this.heart_rate = num;}
 			double get_temp(){return temp;}
+			void set_temp(double num){this.temp = num;}
 			void get_sensor();
 			void give_order();
 	};
