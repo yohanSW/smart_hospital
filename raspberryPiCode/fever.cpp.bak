@@ -20,6 +20,4 @@ using namespace han{
 	void give_order(){
 		cout << "give_order" << endl;
 	}
-
-
 }

@@ -5,7 +5,7 @@ using namespace han{
 	Fever();
 	void Vegetative::aduino_setting(W device_port){
 		//get filedescriptor
-		if ((fd = serialOpen (device_port, 9800)) < 0){
+		if ((fd = serialOpen (device_port, 115200)) < 0){
 			fprintf (stderr, "Unable to open serial device: %s\n", strerror (errno)) ;
 			exit(1); //error
 		}

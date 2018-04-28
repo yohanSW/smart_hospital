@@ -12,13 +12,11 @@ Read Me:
 https://github.com/WorldFamousElectronics/PulseSensor_Amped_Arduino/blob/master/README.md
  ----------------------       ----------------------  ----------------------
 */
-#include "HX711.h"
 #include <OneWire.h>
 
 #define PROCESSING_VISUALIZER 1
 #define SERIAL_PLOTTER  2
 
-HX711 scale(A1, A2); // DOUT, SCK
 //  Variables
 int pulsePin = 0;                 // Pulse Sensor purple wire connected to analog pin 0
 int blinkPin = 13;                // pin to blink led at each beat
@@ -53,15 +51,11 @@ void setup(){
    // UN-COMMENT THE NEXT LINE AND APPLY THAT VOLTAGE TO THE A-REF PIN
   //   analogReference(EXTERNAL);
   
-  scale.set_scale(2280.f); //// this value is obtained by calibrating the scale with known weights
-  scale.tare();
 }
 
 
 //  Where the Magic Happens
 void loop(){
-  int value = analogRead(A3);
-  int limit = digitalRead(3);
 
   float temperature = getTemp();
   Serial.print("!");
@@ -80,18 +74,11 @@ void loop(){
   ledFadeToBeat();                      // Makes the LED Fade Effect Happen
 
   //Serial.print("one reading:\t");
-  Serial.print("@");
-  Serial.print(scale.get_units(), 1);
   Serial.print("#");
-  Serial.print(value);
-  Serial.print("$");
-  Serial.print(limit);
-  Serial.print("%");
   Serial.println(temperature);
+  //
 
-  scale.power_down(); // put the ADC in sleep mode
   delay(20);                             //  take a break
-  scale.power_up();
 }
 
 
@@ -104,36 +91,36 @@ void ledFadeToBeat(){
     analogWrite(fadePin,fadeRate);          //  fade LED
   }
 
-  float getTemp(){                                   //온도 측정 후 반환하는 함수
- byte data[12];
- byte addr[8];
- if ( !ds.search(addr)) {
-   ds.reset_search();
-   return -1000;
- }
- if ( OneWire::crc8( addr, 7) != addr[7]) {
-   Serial.println("CRC is not valid!");
-   return -1000;
- }
- if ( addr[0] != 0x10 && addr[0] != 0x28) {
-   Serial.print("Device is not recognized");
-   return -1000;
- }
- ds.reset();
- ds.select(addr);
- ds.write(0x44,1);                                   
- byte present = ds.reset();
- ds.select(addr);  
- ds.write(0xBE); 
- 
- for (int i = 0; i < 9; i++) { 
-  data[i] = ds.read();                                                          
- }
- 
- ds.reset_search(); 
- byte MSB = data[1];
- byte LSB = data[0];
- float tempRead = ((MSB << 8) | LSB); 
- float TemperatureSum = tempRead / 16; 
- return TemperatureSum;                                                                    
+float getTemp(){                                   //온도 측정 후 반환하는 함수
+	 byte data[12];
+	 byte addr[8];
+	 if ( !ds.search(addr)) {
+		ds.reset_search();
+		return -1000;
+	 }
+	 if ( OneWire::crc8( addr, 7) != addr[7]) {	
+		Serial.println("CRC is not valid!");
+		return -1000;
+	 }
+	 if ( addr[0] != 0x10 && addr[0] != 0x28) {
+		Serial.print("Device is not recognized");
+		return -1000;
+	 }
+	 ds.reset();
+	 ds.select(addr);	
+	 ds.write(0x44,1);                                   
+	 byte present = ds.reset();
+	 ds.select(addr);  
+	 ds.write(0xBE); 
+	 
+	 for (int i = 0; i < 9; i++) { 
+		  data[i] = ds.read();                                                          
+	 }
+	 
+	 ds.reset_search(); 
+	 byte MSB = data[1];
+	 byte LSB = data[0];
+	 float tempRead = ((MSB << 8) | LSB); 
+	 float TemperatureSum = tempRead / 16; 
+	 return TemperatureSum;                                                                    
 }
