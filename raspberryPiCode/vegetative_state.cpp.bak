@@ -17,8 +17,58 @@ using namespace han
 			exit(1); //error
 		}
 	}
-	void get_sensor();
-	void give_order(){
 
+
+	void Vegetative::get_sensor(){
+		char buf[200], flushBuf[200]={0, };
+		char *ptr;
+		char bufStr[20];
+		int i = 0;
+
+		while(1){
+			
+	
+		// Pong every 3 seconds
+		  if(millis()-Atime>=3000){
+		    serialPuts (fd, "Pong!\n");
+		    // you can also write data from 0-255
+		    // 65 is in ASCII 'A'
+		    serialPutchar (fd, 65);
+		    Atime=millis();
+		  }
+	 	 // read signal	
+	 	 if(serialDataAvail (fd)){
+	 	   //char newChar = serialGetchar (fd);
+	 	   //printf("%c", newChar);
+		
+			buf[i++] = serialGetchar(fd);
+			if(i>60){
+				ptr = strchr(buf, '!');
+				strncpy(bufStr,ptr+1,3);
+				if(bufStr[2]==',')
+					bufStr[2]='\n';
+				else bufStr[3]='\n';
+				heart_rate = atoi(bufStr);
+	
+				ptr = strchr(buf, '@');
+				strncpy(bufStr,ptr+2,3);
+				bufStr[3]='\n';
+				infusion_solution = atof(bufStr);
+	
+			
+				printf("heart : %d , infusion_solution : %lf\n",heart_rate, infusion_solution);
+				
+				strcpy(buf, flushBuf);
+				i = 0;
+			}
+		    //fgets(bufStr, sizof(bufStr),stdout);
+  		  fflush(stdout);
+		  }
+		}	
+	}
+
+
+	void Vegetative::give_order(){
+		cout << "give_order" << endl;
 	}
 }

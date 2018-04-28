@@ -10,7 +10,7 @@ using namespace han{
 			int heart_rate;
 			double infusion_solution;
 			bool wake_up;
-			String device_port;
+			
 		public:
 			Vegetative();
 			Vegetative(String);

@@ -5,13 +5,13 @@ using namespace han
 {
 	ICU();
 
-	void setup_raspberry(){
+	void ICU::setup_raspberry(){
 				patient1.aduino_setting("/dev/tty0");
 				patient2.aduino_setting("/dev/tty1");
 				gpio_setting();
 	}
-	void upload_data(); //kaa°ü·Ã
+	void ICU::upload_data(); //kaa°ü·Ã
 	
 	
-	void situation_control(); // ¹ÎÁö
+	void ICU::situation_control(); // ¹ÎÁö
 }

@@ -7,7 +7,7 @@ using namespace han
 {
 
 	class Fever: public Patient{
-		protected:
+		private:
 			int heart_rate;
 			double temp;
 	

@@ -10,6 +10,7 @@ using namespace han
 		private:
 			int heart_rate;
 			double temp;
+			int fd;
 	
 		public:
 			Fever();
