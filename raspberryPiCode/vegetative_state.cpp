@@ -18,5 +18,7 @@ using namespace han
 		}
 	}
 	void get_sensor();
-	void give_order();
+	void give_order(){
+		cout << "give_order" << endl;
+	}
 }

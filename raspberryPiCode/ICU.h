@@ -9,12 +9,18 @@ using namespace han
 		private:
 			double room_temp;
 			int danger_situation;
-		
+			Fever patient1;
+			Vegetative patient2;
+			Nurse nurse;
 		public:
 			ICU();
 			int get_danger_situation(){return danger_situation;}
 			double get_room_temp(){return room_temp;}
-			void dangerLED();
+			void gpio_setting(); // ¹ÎÁö
+			void setup_raspberry();
+			void upload_data(); //kaa°ü·Ã
+
+			void situation_control(); // ¹ÎÁö
 
 };
 

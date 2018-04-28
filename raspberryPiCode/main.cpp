@@ -7,14 +7,16 @@
 
 using namespace han;
 //Global Variable
+void init_setting(ICU& room);
 
 int main(int argc, char *argv ){
 	//Local variable + class
+	ICU room1;
 	cout << "wowong!"<< endl;
 
 
 	//setting all (+multi thread)
-	init_setting();
+	init_setting(room1);
 
 
 
@@ -32,10 +34,10 @@ int main(int argc, char *argv ){
 
 
 
-void init_setting(){
+void init_setting(ICU& room){
 	printf("%s \n", "Raspberry Startup!");
 	fflush(stdout);
- 
+	room1.setup_raspberry();
 	
 
 }

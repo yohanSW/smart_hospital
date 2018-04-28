@@ -10,8 +10,5 @@ using namespace han
 				patient2.aduino_setting("/dev/tty1");
 				gpio_setting();
 	}
-	void upload_data(); //kaa°ü·Ã
-	
-	
-	void situation_control(); // ¹ÎÁö
+	void dangerLED();
 }
