@@ -7,7 +7,7 @@ using namespace han
 {
 
 	class Fever: public Patient{
-		protected:
+		private:
 			int heart_rate;
 			double temp;
 	
@@ -17,6 +17,8 @@ using namespace han
 			void set_heart_rate(int num){this.heart_rate = num;}
 			double get_temp(){return temp;}
 			void set_temp(double num){this.temp = num;}
+
+			void aduino_setting(String device_port);
 			void get_sensor();
 			void give_order();
 	};

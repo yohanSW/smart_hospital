@@ -33,9 +33,5 @@ int main(int argc, char *argv ){
 
 
 void init_setting(){
-	printf("%s \n", "Raspberry Startup!");
-	fflush(stdout);
- 
-	
 
 }

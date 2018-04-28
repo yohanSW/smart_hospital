@@ -6,7 +6,7 @@ using namespace han
 {
 
 	class ICU{
-		protected:
+		private:
 			double room_temp;
 			int danger_situation;
 		
