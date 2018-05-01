@@ -48,16 +48,18 @@ using namespace han
 				if(bufStr[2]==',')
 					bufStr[2]='\n';
 				else bufStr[3]='\n';
+				m.lock();
 				heart_rate = atoi(bufStr);
-	
+				m.unlock();
+
 				ptr = strchr(buf, '@');
 				strncpy(bufStr,ptr+2,3);
 				bufStr[3]='\n';
+				m.lock();
 				infusion_solution = atof(bufStr);
-	
-			
 				printf("heart : %d , infusion_solution : %lf\n",heart_rate, infusion_solution);
-				
+				m.unlock();			
+
 				strcpy(buf, flushBuf);
 				i = 0;
 			}

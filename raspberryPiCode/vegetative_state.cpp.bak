@@ -42,7 +42,7 @@ using namespace han
 	 	   //printf("%c", newChar);
 		
 			buf[i++] = serialGetchar(fd);
-			if(i>60){
+			if(i>40){
 				ptr = strchr(buf, '!');
 				strncpy(bufStr,ptr+1,3);
 				if(bufStr[2]==',')

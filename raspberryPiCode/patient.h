@@ -10,6 +10,7 @@ using namespace han
 			String name;
 			int danger;
 			String device_port;
+			std::mutex m;
 
 		public:
 			Patient();

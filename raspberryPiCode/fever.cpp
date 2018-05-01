@@ -47,16 +47,18 @@ using namespace han{
 				if(bufStr[2]==',')
 					bufStr[2]='\n';
 				else bufStr[3]='\n';
+				m.lock();
 				heart_rate = atoi(bufStr);
+				m.unlock();
 	
 				ptr = strchr(buf, '%');
 				strncpy(bufStr,ptr+1,5);
 				bufStr[5]='\n';
+				m.lock();
 				temp = atof(bufStr);
-	
-			
 				printf("heart : %d , temp : %lf\n",heart_rate, temp);
-				
+				m.unlock();
+
 				strcpy(buf, flushBuf);
 				i = 0;
 			}
