@@ -16,6 +16,10 @@ using namespace han
 			fprintf (stdout, "Unable to start wiringPi: %s\n", strerror (errno)) ;
 			exit(1); //error
 		}
+
+		//setup the others
+		name = "minji";
+		danger = 0;
 	}
 
 

@@ -10,7 +10,6 @@ using namespace han{
 			int heart_rate;
 			double infusion_solution;
 			bool wake_up;
-			int fd;
 			
 		public:
 			Vegetative();

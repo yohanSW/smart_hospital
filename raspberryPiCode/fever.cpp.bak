@@ -3,7 +3,7 @@
 using namespace han{
 
 	Fever();
-	void Fever::aduino_setting(W device_port){
+	void Fever::aduino_setting(String device_port){
 		//get filedescriptor
 		if ((fd = serialOpen (device_port, 115200)) < 0){
 			fprintf (stderr, "Unable to open serial device: %s\n", strerror (errno)) ;
@@ -15,6 +15,11 @@ using namespace han{
 			fprintf (stdout, "Unable to start wiringPi: %s\n", strerror (errno)) ;
 			exit(1); //error
 		}
+
+		//setup the others
+		name = "yohan";
+		danger = 0;
+		this.device_port = device_port;
 	}
 
 
@@ -56,10 +61,9 @@ using namespace han{
 				bufStr[5]='\n';
 				m.lock();
 				temp = atof(bufStr);
-				m.unlock();
-			
 				printf("heart : %d , temp : %lf\n",heart_rate, temp);
-				
+				m.unlock();
+
 				strcpy(buf, flushBuf);
 				i = 0;
 			}

@@ -11,7 +11,6 @@ using namespace han
 			int heart_rate;
 			double temp;
 			int fd;
-			std::mutex m;
 	
 		public:
 			Fever();

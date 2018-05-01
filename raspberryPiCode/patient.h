@@ -9,8 +9,8 @@ using namespace han
 		protected:
 			String name;
 			int danger;
-			String device_port;
 			std::mutex m;
+			int fd;
 
 		public:
 			Patient();
