@@ -18,6 +18,10 @@ using namespace han
 			void set_heart_rate(int num){this.heart_rate = num;}
 			double get_temp(){return temp;}
 			void set_temp(double num){this.temp = num;}
+			int get_fd(){return fd;}
+			void set_fd(int num){this.fd = num;}
+			int get_fd(){return fd;}
+			void set_fd(int num){this.fd = num;}
 
 			void aduino_setting(String device_port);
 			void get_sensor();

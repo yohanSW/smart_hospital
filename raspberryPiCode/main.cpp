@@ -38,6 +38,7 @@ void init_setting(ICU& room){
 	printf("%s \n", "Raspberry Startup!");
 	fflush(stdout);
 	room1.setup_raspberry();
+
 	
 
 }
