@@ -16,6 +16,7 @@ using namespace han
 			ICU();
 			int get_danger_situation(){return danger_situation;}
 			double get_room_temp(){return room_temp;}
+
 			void gpio_setting(); // ¹ÎÁö
 			void setup_raspberry();
 			void upload_data(); //kaa°ü·Ã
