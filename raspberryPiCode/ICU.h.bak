@@ -1,6 +1,8 @@
 #ifndef SH_ICU
 #define SH_ICU
 #include "common.h"
+#include "fever.h"
+#include "vegetative_state.h"
 
 namespace han
 {

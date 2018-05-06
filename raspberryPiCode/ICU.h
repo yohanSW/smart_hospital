@@ -3,6 +3,7 @@
 #include "common.h"
 #include "fever.h"
 #include "vegetative_state.h"
+#include "nurse.h"
 
 namespace han
 {
