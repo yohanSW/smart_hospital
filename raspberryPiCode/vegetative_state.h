@@ -13,14 +13,14 @@ namespace han{
 			
 		public:
 			Vegetative();
-			Vegetative(String);
+			Vegetative(string);
 			int get_heart_rate(){return heart_rate;}
 			void set_heart_rate(int num){this.heart_rate = num;}
 			double get_infusion_solution(){return infusion_solution;}
 			void set_infusion_solution(double num){this.infusion_solution = num;}
 			bool get_wake_up(){return wake_up;}
 
-			void aduino_setting(String device_port);
+			void aduino_setting(string device_port);
 			void get_sensor();
 			void give_order();
 	};

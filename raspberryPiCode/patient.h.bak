@@ -2,7 +2,7 @@
 #define SH_PATIENT
 #include "common.h"
 
-using namespace han
+namespace han
 {
 
 	class Patient{

@@ -22,7 +22,7 @@ namespace han
 			int get_fd(){return fd;}
 			void set_fd(int num){this.fd = num;}
 
-			void aduino_setting(String device_port);
+			void aduino_setting(string device_port);
 			void get_sensor();
 			void give_order();
 	};

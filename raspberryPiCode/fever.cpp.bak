@@ -1,6 +1,6 @@
 #include "fever.h"
 
-using namespace han{
+namespace han{
 
 	Fever();
 	void Fever::aduino_setting(String device_port){
