@@ -9,13 +9,13 @@ namespace han
 		protected:
 			string name;
 			int danger;
-			std::mutex m;
+			mutex m;
 			int fd;
 
 		public:
 			Patient();
 			int get_danger(){return danger;}
-			void set_danger(int num){this.danger = num;}
+			void set_danger(int num){danger = num;}
 			string get_name(){return name;}
 			virtual void aduino_setting(string);
 			virtual void get_sensor();

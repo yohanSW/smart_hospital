@@ -15,9 +15,9 @@ namespace han{
 			Vegetative();
 			Vegetative(string);
 			int get_heart_rate(){return heart_rate;}
-			void set_heart_rate(int num){this.heart_rate = num;}
+			void set_heart_rate(int num){heart_rate = num;}
 			double get_infusion_solution(){return infusion_solution;}
-			void set_infusion_solution(double num){this.infusion_solution = num;}
+			void set_infusion_solution(double num){infusion_solution = num;}
 			bool get_wake_up(){return wake_up;}
 
 			void aduino_setting(string device_port);

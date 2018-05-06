@@ -14,13 +14,11 @@ namespace han
 		public:
 			Fever();
 			int get_heart_rate(){return heart_rate;}
-			void set_heart_rate(int num){this.heart_rate = num;}
+			void set_heart_rate(int num){heart_rate = num;}
 			double get_temp(){return temp;}
-			void set_temp(double num){this.temp = num;}
+			void set_temp(double num){temp = num;}
 			int get_fd(){return fd;}
-			void set_fd(int num){this.fd = num;}
-			int get_fd(){return fd;}
-			void set_fd(int num){this.fd = num;}
+			void set_fd(int num){fd = num;}
 
 			void aduino_setting(string device_port);
 			void get_sensor();
