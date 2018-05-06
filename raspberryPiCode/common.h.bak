@@ -14,8 +14,4 @@
 #include <wiringPi.h>
 #include <wiringSerial.h>
 
-#define BUTTON	12
-#define FAN	21
-#define LED_RED 23
-#define LED_YELLOW 25
 #endif /* SH_COMMON */

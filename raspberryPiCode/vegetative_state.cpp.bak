@@ -1,7 +1,6 @@
 #include <vegetative_state.h>
 
-
-using namespace han
+namespace han
 {
 	Vegetative();
 	void Vegetative::aduino_setting(String device_port){
