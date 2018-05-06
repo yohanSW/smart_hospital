@@ -14,7 +14,7 @@ using namespace han
 			Nurse();
 			int danger_emergency();
 			int danger_ringer();
-			int danger_situation_off(){ return danger_num = 0; }
+			int danger_situation_off();
 
 	};
 }

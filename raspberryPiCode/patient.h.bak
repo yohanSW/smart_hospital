@@ -12,7 +12,6 @@ using namespace han
 			std::mutex m;
 			int fd;
 
-
 		public:
 			Patient();
 			int get_danger(){return danger;}

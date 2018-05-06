@@ -5,11 +5,12 @@
 #include "nurse.h"
 
 using namespace std;
-using namespace han;
+
 //Global Variable
 void init_setting(ICU& room);
 
 int main(int argc, char *argv ){
+	using namespace han;
 	//Local variable + class
 	ICU room1;
 	cout << "wowong!"<< endl;

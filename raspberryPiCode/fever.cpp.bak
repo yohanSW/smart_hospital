@@ -19,7 +19,6 @@ using namespace han{
 		//setup the others
 		name = "yohan";
 		danger = 0;
-		this.device_port = device_port;
 	}
 
 

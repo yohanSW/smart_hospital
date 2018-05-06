@@ -3,7 +3,7 @@
 #include "common.h"
 #include "patient.h"
 
-using namespace han{
+namespace han{
 
 	class Vegetative: public Patient{
 		private:
