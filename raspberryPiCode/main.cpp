@@ -4,7 +4,6 @@
 #include "fever.h"
 #include "nurse.h"
 
-using namespace std;
 
 //Global Variable
 void init_setting(ICU& room);

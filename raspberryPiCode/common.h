@@ -18,4 +18,8 @@
 #define FAN	21
 #define LED_RED 23
 #define LED_YELLOW 25
+
+using namespace std;
+
 #endif /* SH_COMMON */
+
