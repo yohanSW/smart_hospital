@@ -1,7 +1,6 @@
 #include "nurse.h"
 
-
-using namespace han
+namespace han
 {
 	Nurse();
 	int Nurse::danger_emergency(){

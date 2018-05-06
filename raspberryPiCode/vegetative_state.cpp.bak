@@ -18,7 +18,7 @@ using namespace han
 		}
 
 		//setup the others
-		name = "yohan";
+		name = "minji";
 		danger = 0;
 	}
 

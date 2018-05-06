@@ -2,7 +2,7 @@
 #define SH_ICU
 #include "common.h"
 
-using namespace han
+namespace han
 {
 
 	class ICU{

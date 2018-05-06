@@ -7,13 +7,21 @@ using namespace han
 	int Nurse::danger_emergency(){
 		
 		digitalWrite(LED_RED, HIGH);
-		return danger_num = 3;
+		
+		if(digitalRead(BUTTON) == HIGH){
+			return danger_num = 3;
+		}
+		else return danger_num = 1;
 	}
 
 	int Nurse::danger_ringer(){
 
 		digitalWrite(LED_YELLOW, HIGH);
-		return danger_num = 3;
+		
+		if(digitalRead(BUTTON) == HIGH){
+			return danger_num = 3;
+		}
+		else return danger_num = 2;
 	}
 	
 	int Nurse::danger_situation_off(){

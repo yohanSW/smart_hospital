@@ -3,7 +3,7 @@
 #include "common.h"
 #include "ICU.h"
 
-using namespace han
+namespace han
 {
 
 	class Nurse{

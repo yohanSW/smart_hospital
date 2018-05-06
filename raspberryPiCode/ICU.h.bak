@@ -12,6 +12,7 @@ using namespace han
 			Fever patient1;
 			Vegetative patient2;
 			Nurse nurse;
+
 		public:
 			ICU();
 			int get_danger_situation(){return danger_situation;}
