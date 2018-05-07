@@ -3,10 +3,9 @@
 
 #include <iostream>
 #include <pthread.h>
-#include <stdio.h> //for printf
 #include <stdint.h> //uint8_t definitions
 #include <stdlib.h> //for exit(int);
-#include <string> //for errno
+#include <string> 
 #include <errno.h> //error output
 #include <unistd.h>
 #include <fcntl.h>
