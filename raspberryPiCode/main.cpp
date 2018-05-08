@@ -1,10 +1,10 @@
 #include "common.h"
 #include "ICU.h"
 
+using namespace han;
 
 //Global Variable
 void init_setting(ICU &room);
-using namespace han;
 
 int main(int argc, char *argv[] ){
 	//Local variable + class

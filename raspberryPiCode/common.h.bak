@@ -12,7 +12,6 @@
 //wiring Pi
 #include <wiringPi.h>
 #include <wiringSerial.h>
-#include <cstdio>
 
 #define BUTTON	12
 #define FAN	21
