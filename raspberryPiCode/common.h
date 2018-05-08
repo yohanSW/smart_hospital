@@ -2,7 +2,8 @@
 #define SH_COMMON
 
 #include <iostream>
-#include <pthread.h>
+#include <thread>
+#include <mutex>
 #include <stdint.h> //uint8_t definitions
 #include <stdlib.h> //for exit(int);
 #include <string> 

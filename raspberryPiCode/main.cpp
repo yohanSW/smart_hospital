@@ -14,8 +14,8 @@ int main(int argc, char *argv[] ){
 
 	//setting all (+multi thread)
 	init_setting(room1);
-	thread t1(&(room1.patient1.get_sensor()));
-	thread t2(&(room1.patient2.get_sensor()));
+	thread t1(&Fever::get_sensor, &room1.patient1);
+	thread t2(&Vegetative_state::get_sensor, &room1.patient2);
 
 	// while loop
 	while(true){

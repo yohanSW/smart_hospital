@@ -27,7 +27,7 @@ namespace han
 
 			void situation_control(); // ¹ÎÁö
 
-};
+	};
 
 }
 #endif /* SH_ICU */

@@ -2,7 +2,7 @@
 #define SH_COMMON
 
 #include <iostream>
-#include <pthread.h>
+#include <thread>
 #include <stdint.h> //uint8_t definitions
 #include <stdlib.h> //for exit(int);
 #include <string> 
@@ -12,6 +12,7 @@
 //wiring Pi
 #include <wiringPi.h>
 #include <wiringSerial.h>
+#include <cstdio>
 
 #define BUTTON	12
 #define FAN	21
