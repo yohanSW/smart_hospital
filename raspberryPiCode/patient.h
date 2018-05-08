@@ -9,7 +9,7 @@ namespace han
 		protected:
 			string name;
 			int danger;
-			std::mutex m;
+			mutex m;
 			int fd;
 
 		public:
