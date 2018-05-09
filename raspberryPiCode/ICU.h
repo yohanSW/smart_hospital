@@ -14,7 +14,7 @@ namespace han
 			int danger_situation;
 			
 		public:
-			ICU();
+			ICU(){	room_temp = 0;	danger_situation = 0;	}
 			Fever patient1;
 			Vegetative patient2;
 			Nurse nurse;

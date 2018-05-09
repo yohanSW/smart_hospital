@@ -12,7 +12,7 @@ namespace han
 			double temp;
 	
 		public:
-			Fever();
+			Fever(){ heart_rate=0;	temp=0;	}
 			int get_heart_rate(){return heart_rate;}
 			void set_heart_rate(int num){heart_rate = num;}
 			double get_temp(){return temp;}

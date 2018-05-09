@@ -1,7 +1,6 @@
 #ifndef SH_NURSE
 #define SH_NURSE
 #include "common.h"
-#include "ICU.h"
 
 namespace han
 {
@@ -11,7 +10,7 @@ namespace han
 			int danger_num;
 
 		public:
-			Nurse();
+			Nurse(){}
 			int danger_emergency();
 			int danger_ringer();
 			int danger_situation_off();

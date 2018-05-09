@@ -1,5 +1,7 @@
 #include "common.h"
 #include "ICU.h"
+#include "fever.h"
+#include "vegetative_state.h"
 
 using namespace han;
 

@@ -12,7 +12,7 @@ namespace han{
 			bool wake_up;
 			
 		public:
-			Vegetative();
+			Vegetative(){	heart_rate=0;	infusion_solution =0;	wake_up=0;	}
 			Vegetative(string);
 			int get_heart_rate(){return heart_rate;}
 			void set_heart_rate(int num){heart_rate = num;}

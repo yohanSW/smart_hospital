@@ -2,12 +2,6 @@
 
 namespace han
 {
-	Vegetative::Vegetative(){
-			heart_rate=0;
-			infusion_solution =0;
-			wake_up=0;
-	}
-
 	void Vegetative::aduino_setting(string device_port){
 		//get filedescriptor
 		if ((fd = serialOpen (device_port, 115200)) < 0){

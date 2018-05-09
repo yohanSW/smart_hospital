@@ -2,12 +2,7 @@
 
 namespace han
 {
-	ICU::ICU(){
-		room_temp = 0;
-		danger_situation = 0;
-	}
 
-	
 	void ICU::gpio_setting(){
 		//setup GPIO in wiringPi mode
 		if (wiringPiSetupGpio() == -1){

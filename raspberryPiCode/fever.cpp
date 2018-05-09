@@ -2,10 +2,6 @@
 
 namespace han{
 
-	Fever::Fever(){
-		heart_rate=0;
-		temp=0;
-	}
 	void Fever::aduino_setting(string device_port){
 		//get filedescriptor
 		if ((fd = serialOpen (device_port, 115200)) < 0){
