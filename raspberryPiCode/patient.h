@@ -17,10 +17,7 @@ namespace han
 			int get_danger(){return danger;}
 			void set_danger(int num){danger = num;}
 			string get_name(){return name;}
-			virtual void aduino_setting(string);
-			virtual void get_sensor();
-			virtual void give_order();
-
+		
 	};
 }
 
