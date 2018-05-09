@@ -3,5 +3,9 @@
 
 namespace han
 {
-	Patient();
+	Patient::Patient(){
+		name=NULL;
+		danger=0
+		fd=0;
+	}
 }

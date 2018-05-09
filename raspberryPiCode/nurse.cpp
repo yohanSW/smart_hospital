@@ -2,7 +2,9 @@
 
 namespace han
 {
-	Nurse();
+	Nurse::Nurse(){
+
+	}
 	int Nurse::danger_emergency(){
 		
 		digitalWrite(LED_RED, HIGH);
