@@ -7,6 +7,7 @@
 #include <stdint.h> //uint8_t definitions
 #include <stdlib.h> //for exit(int);
 #include <string> 
+#include <cstring>
 #include <errno.h> //error output
 #include <unistd.h>
 #include <fcntl.h>

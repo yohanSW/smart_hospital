@@ -24,7 +24,9 @@ namespace han
 				gpio_setting();
 	}
 
-	void ICU::upload_data(); //kaa관련
+	void ICU::upload_data(){ //kaa관련
+
+	}
 	
 	
 	void ICU::situation_control(){

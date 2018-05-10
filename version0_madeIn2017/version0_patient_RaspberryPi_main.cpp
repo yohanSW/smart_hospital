@@ -155,10 +155,8 @@ MYSQL* mysql_connection_setup() {
     MYSQL *connection = mysql_init(NULL);
  
     if(!mysql_real_connect(connection, DB_HOST, DB_USER, DB_PASS, DB_NAME, 0, NULL, 0)) {
- 
         printf("Connection error : %s\n", mysql_error(connection));
         exit(1);
- 
     }
     return connection;
 }
@@ -242,7 +240,6 @@ int main(void){
 			if(patient_state==GOOD){
 					printf("Alarm!!\n");
 					patient_state=BAD;	
-
 			}
 		}
 		else{

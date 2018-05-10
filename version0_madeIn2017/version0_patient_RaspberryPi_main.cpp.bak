@@ -116,7 +116,7 @@ void *sensing(void *arg){
  	   //printf("%c", newChar);
 	
 		buf[i++] = serialGetchar(fd);
-		if(i>40){
+		if(i>60){
 			ptr = strchr(buf, '!');
 			strncpy(bufStr,ptr+1,3);
 			if(bufStr[2]==',')
@@ -242,7 +242,6 @@ int main(void){
 			if(patient_state==GOOD){
 					printf("Alarm!!\n");
 					patient_state=BAD;	
-
 			}
 		}
 		else{

@@ -26,6 +26,7 @@ namespace han{
 		char *ptr;
 		char bufStr[20];
 		int i = 0;
+		unsigned long Atime=0;
 
 		while(1){
 			

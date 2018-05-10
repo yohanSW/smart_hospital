@@ -4,7 +4,7 @@ namespace han
 {
 	void Vegetative::aduino_setting(string device_port){
 		//get filedescriptor
-		if ((fd = serialOpen (device_port, 115200)) < 0){
+		if ((fd = serialOpen ((char*)device_port, 115200)) < 0){
 			fprintf (stderr, "Unable to open serial device: %s\n", strerror (errno)) ;
 			exit(1); //error
 		}
@@ -26,6 +26,7 @@ namespace han
 		char *ptr;
 		char bufStr[20];
 		int i = 0;
+		unsigned long Atime=0;
 
 		while(1){
 			
