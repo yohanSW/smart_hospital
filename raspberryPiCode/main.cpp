@@ -9,13 +9,15 @@ using namespace han;
 void init_setting(ICU &room);
 
 int main(int argc, char *argv[] ){
+	cout << "main start!"<< endl;
 	//Local variable + class
 	ICU room1;
-	cout << "wowong!"<< endl;
+
 
 
 	//setting all (+multi thread)
 	init_setting(room1);
+	cout << "make thread!"<< endl;
 	thread t1(&Fever::get_sensor, &room1.patient1);
 	thread t2(&Vegetative::get_sensor, &room1.patient2);
 

@@ -72,6 +72,9 @@ namespace han
 		}	
 	}
 
+	void Vegetative::print(){
+		cout << "Vegetative print << \t heart_rate : " << heart_rate << "\t infusion_solution : " << infusion_solution << "\t wake_up : " << wake_up << endl;
+	}
 
 	void Vegetative::give_order(){
 		cout << "give_order" << endl;

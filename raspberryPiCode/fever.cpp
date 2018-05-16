@@ -72,6 +72,10 @@ namespace han{
 		}	
 	}
 
+	void Fever::print(){
+		cout << "Fever print << \t heart_rate : " << heart_rate << "\t temp : " << temp << endl;
+	}
+
 
 	void Fever::give_order(){
 		cout << "give_order" << endl;

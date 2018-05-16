@@ -19,6 +19,7 @@ namespace han{
 			double get_infusion_solution(){return infusion_solution;}
 			void set_infusion_solution(double num){infusion_solution = num;}
 			bool get_wake_up(){return wake_up;}
+			void print();
 
 			void aduino_setting(string device_port);
 			void get_sensor();

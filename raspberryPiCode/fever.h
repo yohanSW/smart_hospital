@@ -19,6 +19,7 @@ namespace han
 			void set_temp(double num){temp = num;}
 			int get_fd(){return fd;}
 			void set_fd(int num){fd = num;}
+			void print();
 
 			void aduino_setting(string device_port);
 			void get_sensor();

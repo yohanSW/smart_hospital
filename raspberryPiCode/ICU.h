@@ -20,13 +20,13 @@ namespace han
 			Nurse nurse;
 			int get_danger_situation(){return danger_situation;}
 			double get_room_temp(){return room_temp;}
+			void print();
 
 			void gpio_setting(); // ¹ÎÁö
 			void setup_raspberry();
 			void upload_data(); //kaa°ü·Ã
 
 			void situation_control(); // ¹ÎÁö
-
 	};
 
 }

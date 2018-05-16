@@ -14,6 +14,7 @@ namespace han
 			int danger_emergency();
 			int danger_ringer();
 			int danger_situation_off();
+			void print();
 
 	};
 }

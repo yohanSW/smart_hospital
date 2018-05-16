@@ -29,4 +29,8 @@ namespace han
 
 		return danger_num = 0;
 	}
+
+	void Nurse::print(){
+		cout << "Nurse print << \t danger_num : " << danger_num << endl;
+	}
 }

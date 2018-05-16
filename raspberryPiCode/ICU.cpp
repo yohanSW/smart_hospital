@@ -19,13 +19,22 @@ namespace han
 	}
 
 	void ICU::setup_raspberry(){
+				cout << "raspberry, aduino setting" <<endl;
 				patient1.aduino_setting("/dev/tty0");
 				patient2.aduino_setting("/dev/tty1");
 				gpio_setting();
 	}
 
 	void ICU::upload_data(){ //kaa°ü·Ã
+		
+	}
 
+	void ICU::print(){
+		cout << "ICU print << \t room temp : " << room_temp << "\t danger_situation : " << danger_situation << endl;
+		patient1.print();
+		patient2.print();
+		nurse.print();
+		cout << endl;
 	}
 	
 	
