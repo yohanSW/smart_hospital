@@ -29,7 +29,6 @@ namespace han{
 		unsigned long Atime=0;
 
 		while(1){
-			
 	
 		// Pong every 3 seconds
 		  if(millis()-Atime>=3000){
