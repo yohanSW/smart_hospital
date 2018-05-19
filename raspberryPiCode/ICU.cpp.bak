@@ -46,7 +46,8 @@ namespace han
 		while(1){
 			sleep(2);
 			time(&now);
-			
+			if(weight>25.0) w_alarm=0;
+			else w_alarm = 1;
 			sprintf(query,"insert into %s (time, heartbeat,temperature,w_alarm, weight) value (%d,%d,%lf,%d,%lf);",patient_name, now,heart1,temp,w_alarm,weight);
 			printf("%s\n",query);
 			res = mysql_perform_query(conn, query);

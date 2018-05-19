@@ -24,7 +24,7 @@ namespace han
 
 			void gpio_setting(); // ¹ÎÁö
 			void setup_raspberry();
-			void upload_data(); //mysql
+			void upload_data(); //kaa°ü·Ã
 
 			void situation_control(); // ¹ÎÁö
 	};

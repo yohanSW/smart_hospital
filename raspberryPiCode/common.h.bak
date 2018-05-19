@@ -24,7 +24,7 @@
 #define DB_HOST "192.168.11.122"
 #define DB_USER "hospital"
 #define DB_PASS "intint"
-#define DB_NAME "hospital"
+#define DB_NAME "ICU"
 
 using namespace std;
 
