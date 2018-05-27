@@ -9,11 +9,11 @@ namespace han
 			exit(1); //error
 		}
  
-		//setup GPIO in wiringPi mode
+		/*//setup GPIO in wiringPi mode
 		if (wiringPiSetup () == -1){
 			fprintf (stdout, "Unable to start wiringPi: %s\n", strerror (errno)) ;
 			exit(1); //error
-		}
+		}*/
 
 		//setup the others
 		name = "minji";

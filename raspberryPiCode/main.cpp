@@ -23,8 +23,7 @@ int main(int argc, char *argv[] ){
 
 	// while loop
 	while(true){
-		cout << "in while\n"<< endl;
-		//kaa part
+		room1.upload_data();
 
 	}
 	t1.join();
