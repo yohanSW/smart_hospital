@@ -24,7 +24,6 @@ int main(int argc, char *argv[] ){
 	// while loop
 	while(true){
 		room1.upload_data();
-
 	}
 	t1.join();
 	t2.join();
