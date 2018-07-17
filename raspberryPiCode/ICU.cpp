@@ -20,8 +20,8 @@ namespace han
 
 	void ICU::setup_raspberry(){
 				cout << "raspberry, aduino setting" <<endl;
-				patient1.aduino_setting("/dev/tty0");
-				patient2.aduino_setting("/dev/tty1");
+				patient1.aduino_setting("/dev/ttyACM0");
+				patient2.aduino_setting("/dev/ttyACM1");
 				gpio_setting();
 	}
 
