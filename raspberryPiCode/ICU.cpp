@@ -26,7 +26,7 @@ namespace han
 	}
 
 	void ICU::upload_data(){ //mysql
-		MYSQL *conn;
+		/*MYSQL *conn;
 	    MYSQL_RES *res;
 		MYSQL_RES *res2;
 		MYSQL_RES *res3;
@@ -81,7 +81,7 @@ namespace han
 						cnt++;
 			}
 			if(cnt==3){
-				if(patient_state==GOOD){
+				if(patient1.danger==GOOD){
 						printf("Alarm!!\n");
 						patient_state=BAD;	
 				}
@@ -97,7 +97,7 @@ namespace han
 	
 		sleep(1000000);
 	  return 0;
-		
+		*/
 	}
 
 	void ICU::print(){

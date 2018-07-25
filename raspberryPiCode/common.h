@@ -26,6 +26,11 @@
 #define DB_PASS "intint"
 #define DB_NAME "hospital"
 
+#define GOOD	1
+#define SOSO	2
+#define BAD		3
+#define BUTTON	5
+
 using namespace std;
 
 #endif /* SH_COMMON */
