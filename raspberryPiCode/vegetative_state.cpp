@@ -45,6 +45,7 @@ namespace han
 	 	   //printf("%c", newChar);
 		
 			buf[i++] = serialGetchar(fd);
+			cout << buf[i-1];
 			if(i>40){
 				ptr = strchr(buf, '!');
 				strncpy(bufStr,ptr+1,3);
@@ -60,7 +61,8 @@ namespace han
 				bufStr[3]='\n';
 				m.lock();
 				infusion_solution = atof(bufStr);
-				printf("heart : %d , infusion_solution : %lf\n",heart_rate, infusion_solution);
+				printf("heart : %d , infusion_solution : %lf",heart_rate, infusion_solution);
+				cout<<endl;
 				m.unlock();			
 
 				strcpy(buf, flushBuf);

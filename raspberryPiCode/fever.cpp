@@ -56,12 +56,13 @@ namespace han{
 					heart_rate = atoi(bufStr);
 					m.unlock();
 	
-					ptr = strchr(buf, '%');
+					ptr = strchr(buf, '#');
 					strncpy(bufStr,ptr+1,5);
 					bufStr[5]='\n';
 					m.lock();
 					temp = atof(bufStr);
-					printf("heart : %d , temp : %lf\n",heart_rate, temp);
+					printf("heart : %d , temp : %lf",heart_rate, temp);
+					cout << endl;
 					m.unlock();
 
 					strcpy(buf, flushBuf);
