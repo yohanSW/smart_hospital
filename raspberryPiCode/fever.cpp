@@ -44,6 +44,7 @@ namespace han{
 				//printf("%c", newChar);
 		
 				buf[i++] = serialGetchar(fd);
+				//cout << buf[i-1];
 				if(i>40){
 					/////////////////////////////error
 					ptr = strchr(buf, '!');
@@ -61,7 +62,7 @@ namespace han{
 					bufStr[5]='\n';
 					m.lock();
 					temp = atof(bufStr);
-					printf("heart : %d , temp : %lf",heart_rate, temp);
+					printf("fever_patient ------ heart : %d , temp : %lf",heart_rate, temp);
 					cout << endl;
 					m.unlock();
 
