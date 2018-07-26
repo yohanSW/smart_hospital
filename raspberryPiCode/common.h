@@ -29,7 +29,7 @@
 #define GOOD	1
 #define SOSO	2
 #define BAD		3
-#define BUTTON	5
+
 
 using namespace std;
 
