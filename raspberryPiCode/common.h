@@ -30,6 +30,7 @@
 #define SOSO	2
 #define BAD		3
 
+mutex multicommu;
 
 using namespace std;
 
