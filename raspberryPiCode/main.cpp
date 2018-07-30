@@ -18,15 +18,17 @@ int main(int argc, char *argv[] ){
 	//setting all (+multi thread)
 	init_setting(room1);
 	cout << "make thread!"<< endl;
-	thread t1(&Fever::get_sensor, &room1.patient1);
-	thread t2(&Vegetative::get_sensor, &room1.patient2);
+	thread t(&ICU::get_sensor, &room1);
+	//thread t1(&Fever::get_sensor, &room1.patient1);
+	//thread t2(&Vegetative::get_sensor, &room1.patient2);
 
 	// while loop
 	while(true){
 		room1.upload_data();
 	}
-	t1.join();
-	t2.join();
+	t.join();
+	//t1.join();
+	//t2.join();
 	return 0;
 }
 

@@ -21,6 +21,7 @@ namespace han
 			int get_danger_situation(){return danger_situation;}
 			double get_room_temp(){return room_temp;}
 			void print();
+			void get_sensor();
 
 			void gpio_setting(); // ¹ÎÁö
 			void setup_raspberry();

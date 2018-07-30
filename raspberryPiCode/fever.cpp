@@ -29,7 +29,6 @@ namespace han{
 		unsigned long Atime=0;
 
 		while(1){
-			multicommu.lock();
 			// Pong every 3 seconds
 			if(millis()-Atime>=3000){
 				serialPuts (fd, "Pong!\n");
@@ -69,11 +68,12 @@ namespace han{
 
 					strcpy(buf, flushBuf);
 					i = 0;
+					fflush(stdout);
+					break;
 				}
 			//fgets(bufStr, sizof(bufStr),stdout);
 			fflush(stdout);
 			}
-			multicommu.unlock();
 		}	
 	}
 

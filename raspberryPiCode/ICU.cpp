@@ -128,4 +128,11 @@ namespace han
 		else digitalWrite(FAN, LOW);
 
 	}// ¹ÎÁö
+
+	void ICU::get_sensor(){
+		while(true){
+			patient1.get_sensor();
+			patient2.get_sensor();
+		}
+	}
 }
