@@ -159,5 +159,8 @@ namespace han
 			patient2.set_danger(3);*/
 		else
 			patient2.set_danger(0);
+
+		cout << "fever_patient danger is --"<<patient1.get_danger() <<"-- vegeta_patient danger is --"<<patient2.get_danger() <<"--"<<endl;
+
 	}
 }
