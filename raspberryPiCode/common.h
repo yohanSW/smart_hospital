@@ -30,6 +30,9 @@
 #define SOSO	2
 #define BAD		3
 
+#define DANGEROUS_TEMP 30.0
+#define DANGEROUS_BEAT 130
+#define DANGEROUS_INFUSION_WEIGHT 100
 
 using namespace std;
 

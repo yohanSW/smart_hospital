@@ -10,6 +10,7 @@ namespace han
 		private:
 			int heart_rate;
 			double temp;
+
 	
 		public:
 			Fever(){ heart_rate=0;	temp=0;	}

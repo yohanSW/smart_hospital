@@ -133,6 +133,31 @@ namespace han
 		while(true){
 			patient1.get_sensor();
 			patient2.get_sensor();
+			judge_danger();
 		}
+	}
+/*#define DANGEROUS_TEMP 30.0
+#define DANGEROUS_BEAT 130
+
+#define GOOD	1
+#define SOSO	2
+#define BAD		3
+#define BUTTON	5	*/
+	void judge_danger(){
+		if(patient1.get_temp() > DANGEROUS_TEMP)
+			patient1.set_danger(2);
+		else if(patient1.get_heart_rate() > DANGEROUS_BEAT)
+			patient1.set_danger(1);
+		else
+			patient1.set_danger(0);
+		
+		if(patient2.get_infusion_solution() < DANGEROUS_INFUSION_WEIGHT)
+			patient2.set_danger(2);
+		else if(patient2.get_heart_rate() > DANGEROUS_BEAT)
+			patient2.set_danger(1);
+		/*else if(patient2.get_wake_up() == 1)
+			patient2.set_danger(3);*/
+		else
+			patient2.set_danger(0);
 	}
 }
