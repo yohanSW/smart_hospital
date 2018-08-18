@@ -10,7 +10,7 @@ namespace han
 		exit(1);
 		}
 		
-		//FANÀº ¼±Ç³±â IO Æ÷Æ® ¹øÈ£ ÁöÁ¤
+		//FANì€ ì„ í’ê¸° IO í¬íŠ¸ ë²ˆí˜¸ ì§€ì •
 		pinMode(FAN, OUTPUT);
 		pinMode(BUTTON, INPUT);
 		pinMode(LED_RED, OUTPUT);
@@ -127,7 +127,7 @@ namespace han
 		}
 		else digitalWrite(FAN, LOW);
 
-	}// ¹ÎÁö
+	}// ë¯¼ì§€
 
 	void ICU::get_sensor(){
 		while(true){
@@ -143,24 +143,24 @@ namespace han
 #define SOSO	2
 #define BAD		3
 #define BUTTON	5	*/
-	void judge_danger(){
-		if(this.patient1.get_temp() > DANGEROUS_TEMP)
-			this.patient1.set_danger(2);
-		else if(this.patient1.get_heart_rate() > DANGEROUS_BEAT)
-			this.patient1.set_danger(1);
+	void ICU::judge_danger(){
+		if(patient1.get_temp() > DANGEROUS_TEMP)
+			patient1.set_danger(2);
+		else if(patient1.get_heart_rate() > DANGEROUS_BEAT)
+			patient1.set_danger(1);
 		else
-			this.patient1.set_danger(0);
+			patient1.set_danger(0);
 		
-		if(this.patient2.get_infusion_solution() < DANGEROUS_INFUSION_WEIGHT)
-			this.patient2.set_danger(2);
-		else if(this.patient2.get_heart_rate() > DANGEROUS_BEAT)
-			this.patient2.set_danger(1);
+		if(patient2.get_infusion_solution() < DANGEROUS_INFUSION_WEIGHT)
+			patient2.set_danger(2);
+		else if(patient2.get_heart_rate() > DANGEROUS_BEAT)
+			patient2.set_danger(1);
 		/*else if(patient2.get_wake_up() == 1)
 			patient2.set_danger(3);*/
 		else
-			this.patient2.set_danger(0);
+			patient2.set_danger(0);
 
-		cout << "fever_patient danger is --"<<this.patient1.get_danger() <<"-- vegeta_patient danger is --"<<this.patient2.get_danger() <<"--"<<endl;
+		cout << "fever_patient danger is --"<<patient1.get_danger() <<"-- vegeta_patient danger is --"<<patient2.get_danger() <<"--"<<endl;
 
 	}
 }
