@@ -3,7 +3,7 @@ mysql = -L ./mysql-connector-c++-8.0.12-linux-debian9-x86-64bit/lib64 -lmysqlcli
 OBJECTS = main.o ICU.o patient.o fever.o vegetative_state.o nurse.o
 
 test : $(OBJECTS)
-	g++ -o smarthospital -Wall -g -std=c++0x -pthread -lwiringPi $(OBJECTS) `mysql_config --cflags --libs`
+	g++ -o smarthospital -Wall -g -std=c++0x -pthread -lwiringPi $(OBJECTS) 
 
 main.o : common.h main.cpp
 	g++ -c main.cpp -std=c++11 $(mysql)
