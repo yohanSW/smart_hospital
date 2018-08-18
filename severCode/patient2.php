@@ -1,14 +1,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=0.75, maximum-scale=0.8, minimum-scale=0, user-scalable=no, target-densitydpi=medium-dpi" />
 <?php
 
-//if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
-
-include_once('/head.php');
-
 $mysql_host = 'localhost';
-$mysql_user = 'root';
-$mysql_password = 'root';
-$mysql_db = 'hospital';
+$mysql_user = 'doctor';
+$mysql_password = 'doctor';
+$mysql_db = 'Hospital';
 
 // 접속
 $conn = mysql_connect($mysql_host, $mysql_user, $mysql_password);
@@ -22,25 +18,31 @@ $dbconn = mysql_select_db($mysql_db, $conn);
 $sql="SELECT * from (SELECT * FROM patient2 ORDER BY time DESC LIMIT 15) as a order by time ASC";
 //echo $sql;
 
- 
-
 $result = mysql_query($sql) ;
 
 
 $str_time="";
-$str_atemper="";
+$str_weight="";
 $str_heart="";
 while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 // echo($row['time']."--------------".$row['temperature']."<br>");
  $str_time .="'".$row['time']."',";
- $str_atemper .="".$row['weight'].",";
- $str_heart .="".$row['heart_rate'].",";
+ $str_weight .="".$row['weight'].",";
+ $str_heart .="".$row['heartbeat'].",";
 }
 $str_time= substr($str_time,0,-1);
-$str_atemper= substr($str_atemper,0,-1);
+$str_weight= substr($str_weight,0,-1);
 $str_heart= substr($str_heart,0,-1);
 //echo $str_atemper;
 
+$sql2="SELECT alarm from patient2 ORDER BY time DESC LIMIT 15) as a order by time ASC";
+$result2 = mysql_query($sql2) ;
+while($arr2 = mysql_fetch_array($result2)){
+	if($arr2[1]=='1')
+		echo "<td style=\"padding-left: 5px;padding-bottom:3px; font-size: 25px;\"> GOOD <img src=/green.png width=\"10\"></td>";
+	else
+		echo "<td><strong style=\"font-size: 25px\"> 위험 상황</string> <img src=/emergency.png width=\"10\"> </td>";
+}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -52,7 +54,7 @@ $str_heart= substr($str_heart,0,-1);
 <font size="4" align="center"><p><p><p><p><p><p> 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 환자 2 님의 개인 데이터<br><br>
 
-&nbsp;&nbsp;&nbsp;&nbsp; 이름: 핸섬가이<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 이름: 김망덕 <br>
 &nbsp;&nbsp;&nbsp;&nbsp; 나이: 50<br>
 &nbsp;&nbsp;&nbsp;&nbsp; 혈액형: A <br>
 <div align="center"><img src="man.png" width="80px" height="120px" align="center"></div>
@@ -109,7 +111,7 @@ $(function () {
   </script>
 
  
-BODY TEMPERATURE <br>
+IV STATE <br>
 
 <div id="container2" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -121,27 +123,27 @@ BODY TEMPERATURE <br>
   <link rel="stylesheet" type="text/css" href="./highchart/code/css/highcharts.css"/>
   <script type="text/javascript">
 $(function () {
-    $('#container2').highcharts({
+    $('#container').highcharts({
         chart: {
-            type: 'line'
-//          backgroundColor: 'black'
+            type: 'bar'
+//	    backgroundColor: 'black'
         },
         title: {
-            text: '링거'
+            text: 'Real-Time'
         },
         subtitle: {
-            text: 'Source: ilikesan.com'
+            text: 'IV'
         },
         xAxis: {
             categories: [<?php echo $str_time?>]
         },
         yAxis: {
             title: {
-                text: ' weight '
+                text: 'IV'
             }
         },
         plotOptions: {
-            line: {
+            bar: {
                 dataLabels: {
                     enabled: true
                 },
@@ -149,10 +151,9 @@ $(function () {
             }
         },
         series: [{
-            name: '환자2',
-            data: [<?php echo $str_atemper?>]
-        }
-  ]
+            name: 'mount',
+	    data: [<?php echo $str_weight?>]
+	}]		        
     });
 });
   </script>
@@ -172,3 +173,4 @@ Monitoring
 $refresh_time="3";// 여기에 몇초마다 refresh 할지를 지정하세요^^*
 echo "<script language=\"javascript\">setTimeout(\"location.reload()\",".($refresh_time*1000).");</script>";
 ?>
+
