@@ -29,14 +29,14 @@ namespace han{
 		unsigned long Atime=0;
 
 		while(1){
-			// Pong every 3 seconds
+			/*// Pong every 3 seconds
 			if(millis()-Atime>=3000){
 				serialPuts (fd, "Pong!\n");
 				// you can also write data from 0-255
 				// 65 is in ASCII 'A'
 				serialPutchar (fd, 65);
 				Atime=millis();
-			}
+			}*/
 			// read signal	
 			if(serialDataAvail (fd)){
 		
