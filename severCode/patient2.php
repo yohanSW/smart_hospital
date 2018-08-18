@@ -7,59 +7,44 @@ $mysql_password = 'doctor';
 $mysql_db = 'hospital';
 
 // 접속
-$conn = mysql_connect($mysql_host, $mysql_user, $mysql_password);
-$dbconn = mysql_select_db($mysql_db, $conn);
-
-
-// charset 설정, 설정하지 않으면 기본 mysql 설정으로 됨, 대체적으로 euc-kr를 많이 사용
-//mysql_query("set names utf8");
-
+$conn = mysqli_connect($mysql_host, $mysql_user, $mysql_password, $mysql_db);
 
 $sql="SELECT * from (SELECT * FROM patient2 ORDER BY time DESC LIMIT 15) as a order by time ASC";
-//echo $sql;
 
-$result = mysql_query($sql) ;
-
+$result = mysqli_query($conn, $sql) ;
 
 $str_time="";
-$str_weight="";
+$str_atemper="";
 $str_heart="";
-while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+while ($row = mysqli_fetch_array($result)) {
 // echo($row['time']."--------------".$row['temperature']."<br>");
  $str_time .="'".$row['time']."',";
  $str_weight .="".$row['weight'].",";
- $str_heart .="".$row['heartbeat'].",";
+ $str_heart .="".$row['heart_rate'].",";
 }
 $str_time= substr($str_time,0,-1);
 $str_weight= substr($str_weight,0,-1);
 $str_heart= substr($str_heart,0,-1);
 //echo $str_atemper;
 
-$sql2="SELECT alarm from patient2 ORDER BY time DESC LIMIT 15) as a order by time ASC";
-$result2 = mysql_query($sql2) ;
-while($arr2 = mysql_fetch_array($result2)){
-	if($arr2[1]=='1')
-		echo "<td style=\"padding-left: 5px;padding-bottom:3px; font-size: 25px;\"> GOOD <img src=/green.png width=\"10\"></td>";
-	else
-		echo "<td><strong style=\"font-size: 25px\"> 위험 상황</string> <img src=/emergency.png width=\"10\"> </td>";
-}
+include_once('./alarm_patient2.php');
+
 ?>
 <!DOCTYPE HTML>
 <html>
 <title> Patient2 </title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style=font-weight:bold;> 
-<div align="center"><a href="/"><img src = "/theme/hospital/img/logo.png" width="100px" height="100px" align="center"></a></div>
 <hr size="3px" color="black"><br>
 <font size="4" align="center"><p><p><p><p><p><p> 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 환자 2 님의 개인 데이터<br><br>
 
-&nbsp;&nbsp;&nbsp;&nbsp; 이름: 김망덕 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; 나이: 50<br>
-&nbsp;&nbsp;&nbsp;&nbsp; 혈액형: A <br>
+&nbsp;&nbsp;&nbsp;&nbsp; NAEM : CHO PONG <br>
+&nbsp;&nbsp;&nbsp;&nbsp; AGE  : 1 <br>
+&nbsp;&nbsp;&nbsp;&nbsp; BLOOD TYPE : B <br>
 <div align="center"><img src="man.png" width="80px" height="120px" align="center"></div>
 <hr size="3px" color="black"><br>
-<pre size="10px"><span style=font-weight:bold;> 실시간 환자상태<br>
+<pre size="10px"><span style=font-weight:bold;> REAL_TIME STATE <br>
 
 &nbsp;&nbsp;&nbsp;&nbsp;
  HEART RATE<br>
@@ -158,18 +143,13 @@ $(function () {
 });
   </script>
 
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;
-Monitoring
-<br>
-
 <script src="./highchart/code/js/highcharts.js"></script>
 <script src="./highchart/code/js/modules/exporting.js"></script>
 
 
 </html>
 
-<?
+<?php
 $refresh_time="3";// 여기에 몇초마다 refresh 할지를 지정하세요^^*
 echo "<script language=\"javascript\">setTimeout(\"location.reload()\",".($refresh_time*1000).");</script>";
 ?>

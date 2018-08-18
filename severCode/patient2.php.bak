@@ -4,7 +4,7 @@
 $mysql_host = 'localhost';
 $mysql_user = 'doctor';
 $mysql_password = 'doctor';
-$mysql_db = 'Hospital';
+$mysql_db = 'hospital';
 
 // 접속
 $conn = mysql_connect($mysql_host, $mysql_user, $mysql_password);
