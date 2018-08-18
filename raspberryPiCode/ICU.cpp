@@ -25,6 +25,31 @@ namespace han
 				gpio_setting();
 	}
 
+MYSQL* mysql_connection_setup() {
+ 
+    MYSQL *connection = mysql_init(NULL);
+ 
+    if(!mysql_real_connect(connection, DB_HOST, DB_USER, DB_PASS, DB_NAME, 0, NULL, 0)) {
+ 
+        printf("Connection error : %s\n", mysql_error(connection));
+        exit(1);
+ 
+    }
+    return connection;
+}
+
+MYSQL_RES* mysql_perform_query(MYSQL *connection, char *sql_query) {
+ 
+    if(mysql_query(connection, sql_query)) {
+ 
+        printf("MYSQL query error : %s\n", mysql_error(connection));
+        exit(1);
+ 
+    }
+    return mysql_use_result(connection);
+}
+
+
 void ICU::upload_data(){ //mysql
 		MYSQL *conn;
 	    MYSQL_RES *res;

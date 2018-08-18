@@ -25,8 +25,8 @@ namespace han
 				gpio_setting();
 	}
 
-	void ICU::upload_data(){ //mysql
-		/*MYSQL *conn;
+void ICU::upload_data(){ //mysql
+		MYSQL *conn;
 	    MYSQL_RES *res;
 		MYSQL_RES *res2;
 		MYSQL_RES *res3;
@@ -46,58 +46,20 @@ namespace han
 		while(1){
 			sleep(2);
 			time(&now);
-			
-			sprintf(query,"insert into %s (time, heartbeat,temperature,w_alarm, weight) value (%d,%d,%lf,%d,%lf);",patient_name, now,heart1,temp,w_alarm,weight);
+			////////////////patient1 전용//////////////////////
+			sprintf(query,"insert into %s (time, heart_rate, temp, alarm) value (%d,%d,%lf,%d);", patient1, now, patient1.get_heart_rate(), patient1.get_temp(), patient1.get_danger());
 			printf("%s\n",query);
 			res = mysql_perform_query(conn, query);
-		
-			sprintf(query,"update Alarm set w_alarm=%d where patient_name='%s'",(int)weight, patient_name);
-			//printf("%s\n",query);
-			res = mysql_perform_query(conn, query);
-	
-	  //		while((row = mysql_fetch_row(res)) != NULL)
-			//// 
-			sprintf(query, "select state from Alarm where patient_name='%s'", patient_name);	
-			res3 = mysql_perform_query(conn, query);
-			row=mysql_fetch_row(res3);
-			//printf("%s\n", query);
-			nurse=atoi(row[0]);
-
-	//		if(nurse == SOSO){
-	//				printf("Thank you nurse!!\n");
-	//				patient_state=SOSO;
-	//		}
-			mysql_free_result(res3);
-			cnt=0;
-			sprintf(query, "select * from %s order by time DESC limit 3", patient_name);
-			res2 = mysql_perform_query(conn, query);
 			
-	//		printf("%s\n", query);
-	
-			while((row = mysql_fetch_row(res2)) != NULL){
-					if(atof(row[2])>DANGEROUS_TEMP)///////////temp, heartbeat
-						cnt++;
-					else if(atoi(row[1])>DANGEROUS_BEAT)
-						cnt++;
-			}
-			if(cnt==3){
-				if(patient1.danger==GOOD){
-						printf("Alarm!!\n");
-						patient_state=BAD;	
-				}
-			}
-			else{
-					printf("I'm good\n");
-					patient_state=GOOD;
-			}
-			sprintf(query, "update Alarm set state='%d' where patient_name='%s'", patient_state, patient_name);
-			mysql_perform_query(conn, query);
-			printf("%s\n", query);
-		}
+			////////////////patient2 전용//////////////////////
+			sprintf(query,"insert into %s (time, heart_rate, weight, alarm) value (%d,%d,%lf,%d);", patient2, now, patient2.get_heart_rate(), patient2.get_infusion_solution(), patient2.get_danger());
+			printf("%s\n",query);
+			res = mysql_perform_query(conn, query);
 	
 		sleep(1000000);
 	  return 0;
-		*/
+		
+		}	
 	}
 
 	void ICU::print(){

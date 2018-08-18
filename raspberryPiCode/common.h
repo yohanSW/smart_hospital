@@ -11,7 +11,7 @@
 #include <errno.h> //error output
 #include <unistd.h>
 #include <fcntl.h>
-#include <mysql.h>
+#include <mysql/mysql.h>
 //wiring Pi
 #include <wiringPi.h>
 #include <wiringSerial.h>
