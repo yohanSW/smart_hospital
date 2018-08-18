@@ -72,12 +72,15 @@ void ICU::upload_data(){ //mysql
 			sleep(2);
 			time(&now);
 			////////////////patient1 전용//////////////////////
+			patient1.m.lock();
 			sprintf(query,"insert into %s (time, heart_rate, temp, alarm) value (%d,%d,%lf,%d);", "patient1", now, patient1.get_heart_rate(), patient1.get_temp(), patient1.get_danger());
+			patient1.m.unlock();
 			printf("%s\n",query);
 			res = mysql_perform_query(conn, query);
-			
 			////////////////patient2 전용//////////////////////
+			patient2.m.lock();
 			sprintf(query,"insert into %s (time, heart_rate, weight, alarm) value (%d,%d,%lf,%d);", "patient2", now, patient2.get_heart_rate(), patient2.get_infusion_solution(), patient2.get_danger());
+			patient1.m.unlock();
 			printf("%s\n",query);
 			res = mysql_perform_query(conn, query);
 	
