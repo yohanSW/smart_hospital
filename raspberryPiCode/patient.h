@@ -9,10 +9,10 @@ namespace han
 		protected:
 			string name;
 			int danger;
-			mutex m;
 			int fd;
 
 		public:
+			mutex m;
 			Patient(){	name="NULL";	danger=0;	fd=0; }
 			int get_danger(){return danger;}
 			void set_danger(int num){danger = num;}
