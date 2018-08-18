@@ -80,7 +80,7 @@ void ICU::upload_data(){ //mysql
 			////////////////patient2 전용//////////////////////
 			patient2.m.lock();
 			sprintf(query,"insert into %s (time, heart_rate, weight, alarm) value (%d,%d,%lf,%d);", "patient2", now, patient2.get_heart_rate(), patient2.get_infusion_solution(), patient2.get_danger());
-			patient1.m.unlock();
+			patient2.m.unlock();
 			printf("%s\n",query);
 			res = mysql_perform_query(conn, query);
 	
@@ -134,13 +134,15 @@ void ICU::upload_data(){ //mysql
 #define BAD		3
 #define BUTTON	5	*/
 	void ICU::judge_danger(){
+		patient1.m.lock();
 		if(patient1.get_temp() > DANGEROUS_TEMP)
 			patient1.set_danger(2);
 		else if(patient1.get_heart_rate() > DANGEROUS_BEAT)
 			patient1.set_danger(1);
 		else
 			patient1.set_danger(0);
-		
+		patient1.m.unlock();
+		patient2.m.lock();
 		if(patient2.get_infusion_solution() < DANGEROUS_INFUSION_WEIGHT)
 			patient2.set_danger(2);
 		else if(patient2.get_heart_rate() > DANGEROUS_BEAT)
@@ -149,7 +151,7 @@ void ICU::upload_data(){ //mysql
 			patient2.set_danger(3);*/
 		else
 			patient2.set_danger(0);
-
+		patient2.m.unlock();
 		cout << "fever_patient danger is --"<<patient1.get_danger() <<"-- vegeta_patient danger is --"<<patient2.get_danger() <<"--"<<endl;
 
 	}
