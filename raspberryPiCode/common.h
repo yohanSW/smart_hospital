@@ -11,6 +11,7 @@
 #include <errno.h> //error output
 #include <unistd.h>
 #include <fcntl.h>
+#include <mysql.h>
 //wiring Pi
 #include <wiringPi.h>
 #include <wiringSerial.h>
@@ -21,10 +22,10 @@
 #define LED_RED 23
 #define LED_YELLOW 25
 
-#define DB_HOST "192.168.11.122"
-#define DB_USER "hospital"
-#define DB_PASS "intint"
-#define DB_NAME "hospital"
+#define DB_HOST "localhost"
+#define DB_USER "doctor"
+#define DB_PASS "doctor"
+#define DB_NAME "Hospital"
 
 #define GOOD	1
 #define SOSO	2
