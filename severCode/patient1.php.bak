@@ -4,7 +4,7 @@
 $mysql_host = 'localhost';
 $mysql_user = 'doctor';
 $mysql_password = 'doctor';
-$mysql_db = 'hospital';
+$mysql_db = 'Hospital';
 
 // 접속
 $conn = mysql_connect($mysql_host, $mysql_user, $mysql_password);
@@ -15,27 +15,27 @@ $dbconn = mysql_select_db($mysql_db, $conn);
 //mysql_query("set names utf8");
 
 
-$sql="SELECT * from (SELECT * FROM patient2 ORDER BY time DESC LIMIT 15) as a order by time ASC";
+$sql="SELECT * from (SELECT * FROM patient1 ORDER BY time DESC LIMIT 15) as a order by time ASC";
 //echo $sql;
 
 $result = mysql_query($sql) ;
 
 
 $str_time="";
-$str_weight="";
+$str_atemper="";
 $str_heart="";
 while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 // echo($row['time']."--------------".$row['temperature']."<br>");
  $str_time .="'".$row['time']."',";
- $str_weight .="".$row['weight'].",";
+ $str_atemper .="".$row['temperature'].",";
  $str_heart .="".$row['heartbeat'].",";
 }
 $str_time= substr($str_time,0,-1);
-$str_weight= substr($str_weight,0,-1);
+$str_atemper= substr($str_atemper,0,-1);
 $str_heart= substr($str_heart,0,-1);
 //echo $str_atemper;
 
-$sql2="SELECT alarm from patient2 ORDER BY time DESC LIMIT 15) as a order by time ASC";
+$sql2="SELECT alarm from patient1 ORDER BY time DESC LIMIT 15) as a order by time ASC";
 $result2 = mysql_query($sql2) ;
 while($arr2 = mysql_fetch_array($result2)){
 	if($arr2[1]=='1')
@@ -46,13 +46,13 @@ while($arr2 = mysql_fetch_array($result2)){
 ?>
 <!DOCTYPE HTML>
 <html>
-<title> Patient2 </title>
+<title> Patient1 </title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style=font-weight:bold;> 
 <div align="center"><a href="/"><img src = "/theme/hospital/img/logo.png" width="100px" height="100px" align="center"></a></div>
 <hr size="3px" color="black"><br>
 <font size="4" align="center"><p><p><p><p><p><p> 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 환자 2 님의 개인 데이터<br><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 환자 1 님의 개인 데이터<br><br>
 
 &nbsp;&nbsp;&nbsp;&nbsp; 이름: 김망덕 <br>
 &nbsp;&nbsp;&nbsp;&nbsp; 나이: 50<br>
@@ -101,7 +101,7 @@ $(function () {
             }
         },
         series: [{
-            name: '환자2',
+            name: '환자1',
 
             data: [<?php echo $str_heart?>]
         }
@@ -111,7 +111,7 @@ $(function () {
   </script>
 
  
-IV STATE <br>
+BODY TEMPERATURE <br>
 
 <div id="container2" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -123,27 +123,27 @@ IV STATE <br>
   <link rel="stylesheet" type="text/css" href="./highchart/code/css/highcharts.css"/>
   <script type="text/javascript">
 $(function () {
-    $('#container').highcharts({
+    $('#container2').highcharts({
         chart: {
-            type: 'bar'
-//	    backgroundColor: 'black'
+            type: 'line'
+//          backgroundColor: 'black'
         },
         title: {
-            text: 'Real-Time'
+            text: 'Body Temperature'
         },
         subtitle: {
-            text: 'IV'
+            text: 'Source: ilikesan.com'
         },
         xAxis: {
             categories: [<?php echo $str_time?>]
         },
         yAxis: {
             title: {
-                text: 'IV'
+                text: ' 실시간 Temperature (°C)'
             }
         },
         plotOptions: {
-            bar: {
+            line: {
                 dataLabels: {
                     enabled: true
                 },
@@ -151,9 +151,10 @@ $(function () {
             }
         },
         series: [{
-            name: 'mount',
-	    data: [<?php echo $str_weight?>]
-	}]		        
+            name: '환자1',
+            data: [<?php echo $str_atemper?>]
+        }
+  ]
     });
 });
   </script>

@@ -25,7 +25,7 @@
 #define DB_HOST "localhost"
 #define DB_USER "doctor"
 #define DB_PASS "doctor"
-#define DB_NAME "Hospital"
+#define DB_NAME "hospital"
 
 #define GOOD	1
 #define SOSO	2
