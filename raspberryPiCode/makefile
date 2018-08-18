@@ -1,4 +1,4 @@
-mysql = -L/usr/include/mysql -lmysqlclient -I/usr/include/mysql
+mysql = -L ./mysql-connector-c++-8.0.12-linux-debian9-x86-64bit/lib64 -lmysqlclient -I ./mysql-connector-c++-8.0.12-linux-debian9-x86-64bit/include
 
 OBJECTS = main.o ICU.o patient.o fever.o vegetative_state.o nurse.o
 
