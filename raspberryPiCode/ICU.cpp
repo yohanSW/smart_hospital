@@ -51,44 +51,43 @@ MYSQL_RES* mysql_perform_query(MYSQL *connection, char *sql_query) {
 
 
 void ICU::upload_data(){ //mysql
-		MYSQL *conn;
-	    MYSQL_RES *res;
-		MYSQL_RES *res2;
-		MYSQL_RES *res3;
-	    MYSQL_ROW row;
-		char query[256];
-		time_t now;
-		int cnt=0;
-		bool alarm = true;
-		int flag;
-	
-		conn = mysql_connection_setup();
-	
-		res = mysql_perform_query(conn, "show tables");
-		while((row = mysql_fetch_row(res)) != NULL)
-	        printf("%s\n", row[0]);
-	
-		while(1){
-			sleep(2);
-			time(&now);
-			////////////////patient1 전용//////////////////////
-			patient1.m.lock();
-			sprintf(query,"insert into %s (time, heart_rate, temp, alarm) value (%d,%d,%lf,%d);", "patient1", now, patient1.get_heart_rate(), patient1.get_temp(), patient1.get_danger());
-			patient1.m.unlock();
-			printf("%s\n",query);
-			res = mysql_perform_query(conn, query);
-			////////////////patient2 전용//////////////////////
-			patient2.m.lock();
-			sprintf(query,"insert into %s (time, heart_rate, weight, alarm) value (%d,%d,%lf,%d);", "patient2", now, patient2.get_heart_rate(), patient2.get_infusion_solution(), patient2.get_danger());
-			patient2.m.unlock();
-			printf("%s\n",query);
-			res = mysql_perform_query(conn, query);
-	
-		sleep(5);
+	MYSQL *conn;
+    MYSQL_RES *res;
+	MYSQL_RES *res2;
+	MYSQL_RES *res3;
+    MYSQL_ROW row;
+	char query[256];
+	time_t now;
+	int cnt=0;
+	bool alarm = true;
+	int flag;
 
+	conn = mysql_connection_setup();
+
+	res = mysql_perform_query(conn, "show tables");
+	while((row = mysql_fetch_row(res)) != NULL)
+        printf("%s\n", row[0]);
+
+	while(1){
+		sleep(2);
+		time(&now);
+		////////////////patient1 전용//////////////////////
+		patient1.m.lock();
+		sprintf(query,"insert into %s (time, heart_rate, temp, alarm) value (%d,%d,%lf,%d);", "patient1", now, patient1.get_heart_rate(), patient1.get_temp(), patient1.get_danger());
+		patient1.m.unlock();
+		printf("%s\n",query);
+		res = mysql_perform_query(conn, query);
+		////////////////patient2 전용//////////////////////
+		patient2.m.lock();
+		sprintf(query,"insert into %s (time, heart_rate, weight, alarm) value (%d,%d,%lf,%d);", "patient2", now, patient2.get_heart_rate(), patient2.get_infusion_solution(), patient2.get_danger());
+		patient2.m.unlock();
+		printf("%s\n",query);
+		res = mysql_perform_query(conn, query);
+
+	sleep(5);
 		
-		}	
-	}
+	}	
+}
 
 void ICU::print(){
 	cout << "ICU print << \t room temp : " << room_temp << "\t danger_situation : " << danger_situation << endl;
