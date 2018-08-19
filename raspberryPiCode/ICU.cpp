@@ -122,23 +122,34 @@ void ICU::get_sensor(){
 		patient1.get_sensor();
 		patient2.get_sensor();
 		judge_danger();
+		situation_control();
 	}
 }
 
 void ICU::judge_danger(){
 	patient1.m.lock();
-	if(patient1.get_temp() > DANGEROUS_TEMP)
+	danger_situation = 0;
+	if(patient1.get_temp() > DANGEROUS_TEMP){
 		patient1.set_danger(2);
-	else if(patient1.get_heart_rate() > DANGEROUS_BEAT)
+		danger_situation = 1;
+	}
+	else if(patient1.get_heart_rate() > DANGEROUS_BEAT){
 		patient1.set_danger(1);
+		danger_situation = 1;
+	}
 	else
 		patient1.set_danger(0);
 	patient1.m.unlock();
 	patient2.m.lock();
-	if(patient2.get_infusion_solution() < DANGEROUS_INFUSION_WEIGHT)
-		patient2.set_danger(2);
-	else if(patient2.get_heart_rate() > DANGEROUS_BEAT)
+	
+	if(patient2.get_heart_rate() > DANGEROUS_BEAT)
 		patient2.set_danger(1);
+		danger_situation = 1;
+	else if(patient2.get_infusion_solution() < DANGEROUS_INFUSION_WEIGHT){
+		patient2.set_danger(2);
+		if (danger_situation != 1)
+			danger_situation = 2;
+	}
 	/*else if(patient2.get_wake_up() == 1)
 		patient2.set_danger(3);*/
 	else
