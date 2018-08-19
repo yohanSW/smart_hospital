@@ -101,7 +101,7 @@ void ICU::print(){
 	
 void ICU::situation_control(){
 
-	int danger = get_danger_situation();
+	int danger = danger_situation;
 	int room_temperature = get_room_temp();
 	int set_room_temp = 26;
 
@@ -111,10 +111,11 @@ void ICU::situation_control(){
 		case 3: danger = nurse.danger_situation_off(); break;
 		case 0: break;
 	}
-	if(set_room_temp < room_temperature){
+	danger_situation = danger;
+	/*if(set_room_temp < room_temperature){
 		digitalWrite(FAN, HIGH);
 	}
-	else digitalWrite(FAN, LOW);
+	else digitalWrite(FAN, LOW);*/
 }// 민지
 
 void ICU::get_sensor(){
