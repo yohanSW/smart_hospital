@@ -97,7 +97,6 @@ void ICU::print(){
 	cout << endl;
 }
 	
-	
 void ICU::situation_control(){
 
 	int danger = danger_situation;
@@ -107,8 +106,7 @@ void ICU::situation_control(){
 	switch(danger){
 		case 1: danger = nurse.danger_emergency(); break;
 		case 2: danger = nurse.danger_ringer(); break;
-		case 3: danger = nurse.danger_situation_off(); break;
-		case 0: break;
+		case 0: danger = nurse.danger_situation_off(); break;
 	}
 	danger_situation = danger;
 	/*if(set_room_temp < room_temperature){
